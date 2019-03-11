@@ -17,13 +17,13 @@ const appRoutes: Routes = [
         path: 'admin',
         component: AdminComponent,
         canActivate: [AuthGuard],
-        data: { roles: [Role.Admin, Role.TL] }
+        data: { roles: [Role.Admin] }
     },
     {
         path: 'trainings',
         component: TrainingsComponent,
         canActivate: [AuthGuard],
-        data: { roles: [Role.Admin, Role.TL] }
+       
     },
     {
         path: 'login',

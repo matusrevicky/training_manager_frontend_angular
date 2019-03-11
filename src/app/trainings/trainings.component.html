@@ -4,6 +4,9 @@
       <tr>
         <th scope="col">id</th>
         <th scope="col">name</th>
+        <th scope="col">cluster</th>
+        <th scope="col">provider</th>
+        <th scope="col">price</th>
       </tr>
     </thead>
     <tbody>
@@ -11,8 +14,14 @@
       <tr *ngFor="let a of trainings" (click)="selectAgent(a)" (dblclick)="editUserClicked(a)">
         <th scope="row">{{a.idTraining}}</th>
         <td>{{a.name}}</td>
+        <td>{{a.clustername}}</td>
+        <td>{{a.providername}}</td>
+        <td>{{a.price}}</td>
+        <td>{{a.idCluster}}</td>
+        
        
-        <td><button class="btn btn-danger" (click)="deleteUser(a)">X</button></td>
+        <td><button class="btn btn-danger" (click)="onSubmit(a)">prihlas ma</button></td>
       </tr>
     </tbody>
   </table>
+  <p *ngIf="selected">Selected: {{selected.name}} {{selected.surname}} {{selected.idCluster}}</p>

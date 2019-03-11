@@ -1,0 +1,18 @@
+<h1 class="display-3">Trainings</h1>
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">id</th>
+        <th scope="col">name</th>
+      </tr>
+    </thead>
+    <tbody>
+     
+      <tr *ngFor="let a of trainings" (click)="selectAgent(a)" (dblclick)="editUserClicked(a)">
+        <th scope="row">{{a.idTraining}}</th>
+        <td>{{a.name}}</td>
+       
+        <td><button class="btn btn-danger" (click)="deleteUser(a)">X</button></td>
+      </tr>
+    </tbody>
+  </table>

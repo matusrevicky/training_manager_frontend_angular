@@ -17,4 +17,14 @@ export class TrainingService {
         return this.http.post(`${config.apiUrl}/trainings/bindwithuser/${id}`, training).pipe(map( _ => true));
       }
 
+      getMyTrainings(id: number){
+        return this.http.get<Training[]>(`${config.apiUrl}/trainings/${id}`);
+      }
+
+      getEmployeeTrainings(id: number, gen: number){
+        return this.http.get<Training[]>(`${config.apiUrl}/trainings/employeeTrainings/${id}/${gen}`);
+      }
+
+      
+
 }

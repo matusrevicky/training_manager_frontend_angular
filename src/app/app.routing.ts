@@ -6,6 +6,9 @@ import { LoginComponent } from './login';
 import { AuthGuard } from './_guards';
 import { Role } from './_models';
 import { TrainingsComponent } from './trainings';
+import { MyTrainingsComponent } from './myTrainings';
+import { MyEmployeesTrainingsComponent } from './myEmployeesTrainings';
+import { SubstituteComponent } from './substitute';
 
 const appRoutes: Routes = [
     {
@@ -17,11 +20,29 @@ const appRoutes: Routes = [
         path: 'admin',
         component: AdminComponent,
         canActivate: [AuthGuard],
-        data: { roles: [Role.Admin] }
+       // data: { roles: [Role.Admin] }
     },
     {
         path: 'trainings',
         component: TrainingsComponent,
+        canActivate: [AuthGuard],
+       
+    },
+    {
+        path: 'myTrainings',
+        component: MyTrainingsComponent,
+        canActivate: [AuthGuard],
+       
+    },
+    {
+        path: 'employeeTrainings',
+        component: MyEmployeesTrainingsComponent,
+        canActivate: [AuthGuard],
+       
+    },
+    {
+        path: 'substitute',
+        component: SubstituteComponent,
         canActivate: [AuthGuard],
        
     },

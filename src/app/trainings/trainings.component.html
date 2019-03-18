@@ -20,62 +20,8 @@
         <td>{{a.idCluster}}</td>
         
        
-        <td><button class="btn btn-danger" (click)="onSubmit(a)">prihlas ma</button></td>
+        <td><button  class="btn btn-danger" (click)="onSubmit(a)">prihlas ma</button></td>
       </tr>
     </tbody>
   </table>
   <p *ngIf="selected">Selected: {{selected.name}} {{selected.surname}} {{selected.idCluster}}</p>
-
-  <h1 class="display-3">My Trainings</h1>
-<table class="table">
-    <thead>
-      <tr>
-        <th scope="col">id</th>
-        <th scope="col">name</th>
-        <th scope="col">cluster</th>
-        <th scope="col">provider</th>
-        <th scope="col">price</th>
-      </tr>
-    </thead>
-    <tbody>
-     
-      <tr *ngFor="let a of myTrainings"  (dblclick)="editUserClicked(a)">
-        <th scope="row">{{a.training}}</th>
-        <td>{{a.name}}</td>
-        <td>{{a.cluster}}</td>
-        <td>{{a.provider}}</td>
-        <td>{{a.price}}</td>
-        <td>{{a.status}}</td>
-        
-       
-        
-      </tr>
-    </tbody>
-  </table>
-
-  <h1 class="display-3">My Employees Trainings</h1>
-<table class="table">
-    <thead>
-      <tr>
-        <th scope="col">id</th>
-        <th scope="col">name</th>
-        <th scope="col">cluster</th>
-        <th scope="col">provider</th>
-        <th scope="col">price</th>
-      </tr>
-    </thead>
-    <tbody>
-     
-      <tr *ngFor="let a of myEmployeeTrainings"  (dblclick)="editUserClicked(a)">
-        <th scope="row">{{a.idUser}}</th>
-        <td>{{a.nameUser}}</td>
-        <td>{{a.nameBoss}}</td>
-        <td>{{a.nameTraining}}</td>
-        <td>{{a.trainingStatus}}</td>
-        <td>{{a.status}}</td>
-        
-       
-        
-      </tr>
-    </tbody>
-  </table>

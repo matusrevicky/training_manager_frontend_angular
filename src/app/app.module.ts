@@ -14,6 +14,10 @@ import { HomeComponent } from './home';
 import { AdminComponent } from './admin';
 import { LoginComponent } from './login';
 import { TrainingsComponent } from './trainings';
+import { MyTrainingsComponent } from './myTrainings';
+import { MyEmployeesTrainingsComponent } from './myEmployeesTrainings';
+import { SubstituteComponent } from './substitute';
+
 
 @NgModule({
     imports: [
@@ -27,7 +31,12 @@ import { TrainingsComponent } from './trainings';
         HomeComponent,
         AdminComponent,
         LoginComponent,
-        TrainingsComponent
+        TrainingsComponent,
+        MyTrainingsComponent,
+        MyEmployeesTrainingsComponent,
+        SubstituteComponent
+
+        
     ],
     providers: [
         { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },

@@ -12,6 +12,9 @@ export class UserService {
         return this.http.get<User[]>(`${config.apiUrl}/users`);
     }
 
+    getSubstitute(id: number) {
+        return this.http.get<User[]>(`${config.apiUrl}/users/substitute/${id}`);
+    }
 
     getById(id: number) {
         return this.http.get<User>(`${config.apiUrl}/users/${id}`);

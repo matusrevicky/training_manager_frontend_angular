@@ -18,13 +18,22 @@ import { MyTrainingsComponent } from './myTrainings';
 import { MyEmployeesTrainingsComponent } from './myEmployeesTrainings';
 import { SubstituteComponent } from './substitute';
 
+import { CdkTableModule } from '@angular/cdk/table';
+import { TableComponent } from './table/table.component';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import {FormsModule} from '@angular/forms';
+
 
 @NgModule({
     imports: [
         BrowserModule,
         ReactiveFormsModule,
         HttpClientModule,
-        routing
+        routing,
+
+        CdkTableModule,
+        NgbModule.forRoot(),
+        FormsModule,
     ],
     declarations: [
         AppComponent,
@@ -34,7 +43,9 @@ import { SubstituteComponent } from './substitute';
         TrainingsComponent,
         MyTrainingsComponent,
         MyEmployeesTrainingsComponent,
-        SubstituteComponent
+        SubstituteComponent,
+
+        TableComponent
 
         
     ],

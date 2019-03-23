@@ -9,6 +9,7 @@ import { TrainingsComponent } from './trainings';
 import { MyTrainingsComponent } from './myTrainings';
 import { MyEmployeesTrainingsComponent } from './myEmployeesTrainings';
 import { SubstituteComponent } from './substitute';
+import { TableComponent } from './table/table.component';
 
 const appRoutes: Routes = [
     {
@@ -50,6 +51,12 @@ const appRoutes: Routes = [
         path: 'login',
         component: LoginComponent
     },
+
+    {
+        path: 'table',
+        component: TableComponent
+    },
+
 
     // otherwise redirect to home
     { path: '**', redirectTo: '' }

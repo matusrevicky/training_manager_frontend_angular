@@ -8,4 +8,7 @@ export class Training {
     providername: string;
     price: number;
 
+    constructor() {
+        this.name = "";
+    }
 }

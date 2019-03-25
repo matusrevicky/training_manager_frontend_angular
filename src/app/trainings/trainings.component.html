@@ -71,3 +71,10 @@
   <tr cdk-row *cdkRowDef="let row; columns: displayedColumns$.value"></tr>
 
 </table>
+
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#trainingModal" (click)="addTrainingButtonClicked()">
+  Add training
+</button>
+
+<app-training-modal (savedTraining)="editedTrainingSaved($event)" [training]="editedTraining" [actionWithTraining]="action"></app-training-modal>
+

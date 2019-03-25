@@ -34,6 +34,8 @@ export class TrainingService {
     return this.http.get<Training[]>(`${config.apiUrl}/trainings/employeeTrainings/${id}`);
   }
 
-
+  saveTraining(user: Training): Observable<boolean> {
+    return this.http.post(`${config.apiUrl}/trainings`, user).pipe(map(_ => true));
+  }
 
 }

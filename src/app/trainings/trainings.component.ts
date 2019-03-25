@@ -11,11 +11,13 @@ import { take } from 'rxjs/operators';
 
 import { FormControl } from '@angular/forms';
 import { MyTrainingsComponent } from '@/myTrainings';
+declare var $:any;
 
 @Component({ templateUrl: 'trainings.component.html' })
 export class TrainingsComponent implements OnInit {
 
 
+  
     trainings$ = new BehaviorSubject([]);
 
     superlatives$ = new BehaviorSubject<{ [superlativeName: string]: string }>({});
@@ -168,5 +170,40 @@ export class TrainingsComponent implements OnInit {
         this.selected = training;
     }
 
+    // save training
+    private action = 'add';
+    private editedTraining = new Training();
+    private status = 'ok';
 
+    editedTrainingSaved(training: Training) {
+        if (this.action == 'add') {
+          this.trainigService.saveTraining(training).subscribe( ok => {
+            this.getAllTrainings();
+          },
+          errorMsg => {
+            this.status = 'error'; 
+            console.log("chyba komunikacie: " + JSON.stringify(errorMsg));
+          });      
+        } else {
+            this.trainigService.saveTraining(training).subscribe( ok => {
+                this.getAllTrainings();
+          },
+          errorMsg => {
+            this.status = 'error'; 
+            console.log("chyba komunikacie: " + JSON.stringify(errorMsg));
+          });      
+        }
+      }
+    
+      addTrainingButtonClicked(){
+        this.action = 'add';
+        this.editedTraining = new Training();
+      }
+    
+      editTrainingClicked(training:Training){
+        this.action = 'edit';
+        this.editedTraining = JSON.parse(JSON.stringify(training));
+        $('#trainingModal').modal('show');
+      }
+   
 }

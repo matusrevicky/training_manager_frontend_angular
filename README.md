@@ -7,8 +7,4 @@ To see a demo and further details go to http://jasonwatmore.com/post/2018/11/22/
 To start:
 1. install mysql database from mysql/trainingManagment.sql
 2. in the project directory type npm start
-<<<<<<< HEAD
 3. run also frontend https://github.com/matusrevicky/training_manager_frontend_angular
-=======
-3. run also frontend https://github.com/matusrevicky/training_manager_frontend_angular
->>>>>>> 6a66242b93673c82b197088b936a8690ec113550

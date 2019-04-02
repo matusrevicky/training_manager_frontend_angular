@@ -37,7 +37,7 @@ export class TrainingsComponent implements OnInit {
     sortDirection$ = new BehaviorSubject<string>('asc');
 
 
-    trainings: Training[] = [];
+  //  trainings: Training[] = [];
 
     private training: Training;
     private selected: Training;
@@ -50,9 +50,7 @@ export class TrainingsComponent implements OnInit {
     ngOnInit() {
 
         // loads data into behavorial subject
-        this.trainigService.getAllTrainings().pipe(first()).subscribe(tr => {
-            this.trainings$.next(tr);
-        });
+      this.getAllTrainings();
 
 
         // console.log(this.tra$);
@@ -146,13 +144,20 @@ export class TrainingsComponent implements OnInit {
     }
 
     getAllTrainings() {
-        this.trainigService.getAllTrainings().pipe(first()).subscribe(trainings => {
-            this.trainings = trainings;
+
+        this.trainigService.getAllTrainings(this.currentUser.idUser).pipe(first()).subscribe(tr => {
+            this.trainings$.next(tr);
         });
+
+
+      //  this.trainigService.getAllTrainings(this.currentUser.idUser).pipe(first()).subscribe(trainings => {
+       //     this.trainings = trainings;
+       // });
     }
 
     onSubmit(training: Training) {
         this.trainigService.bindUserWithTraining(training, this.currentUser.idUser).subscribe(ok => {
+            this.getAllTrainings();
             this.saved = true;
             setTimeout(_ => this.saved = false, 5000);
         });;
@@ -204,6 +209,56 @@ export class TrainingsComponent implements OnInit {
         this.action = 'edit';
         this.editedTraining = JSON.parse(JSON.stringify(training));
         $('#trainingModal').modal('show');
+      }
+
+      addProviderButtonClicked(){
+        this.action = 'add';
+        this.editedTraining = new Training();
+      }
+
+      editedProviderSaved(training: Training) {
+        if (this.action == 'add') {
+          this.trainigService.saveProvider(training).subscribe( ok => {
+           
+          },
+          errorMsg => {
+            this.status = 'error'; 
+            console.log("chyba komunikacie: " + JSON.stringify(errorMsg));
+          });      
+        } else {
+            this.trainigService.saveProvider(training).subscribe( ok => {
+               
+          },
+          errorMsg => {
+            this.status = 'error'; 
+            console.log("chyba komunikacie: " + JSON.stringify(errorMsg));
+          });      
+        }
+      }
+
+      addClusterButtonClicked(){
+        this.action = 'add';
+        this.editedTraining = new Training();
+      }
+
+      editedClusterSaved(training: Training) {
+        if (this.action == 'add') {
+          this.trainigService.saveCluster(training).subscribe( ok => {
+           
+          },
+          errorMsg => {
+            this.status = 'error'; 
+            console.log("chyba komunikacie: " + JSON.stringify(errorMsg));
+          });      
+        } else {
+            this.trainigService.saveCluster(training).subscribe( ok => {
+               
+          },
+          errorMsg => {
+            this.status = 'error'; 
+            console.log("chyba komunikacie: " + JSON.stringify(errorMsg));
+          });      
+        }
       }
    
 }

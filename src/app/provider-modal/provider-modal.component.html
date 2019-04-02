@@ -1,6 +1,6 @@
 <!-- Modal -->
 <form (ngSubmit)="onSubmit()" #myForm="ngForm">
-  <div class="modal fade" id="trainingModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal fade" id="providerModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
@@ -11,7 +11,8 @@
         </div>
        <!-- <p>Hodnota modelu: {{actualUser}}</p> -->
         <div class="modal-body form-group">
-         <label>Training name:</label> <input class="form-control" type="text" [(ngModel)]="training.name" name="nameTraining" > 
+            <label>Training name:</label> <input class="form-control" type="text" [(ngModel)]="training.name" name="nameTraining" > 
+      
       
 
            

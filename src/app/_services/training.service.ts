@@ -4,14 +4,15 @@ import { Observable, of } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Training } from '@/_models/training';
 import { User } from '@/_models';
+import { Cluster } from '@/_models/cluster';
 
 @Injectable({ providedIn: 'root' })
 export class TrainingService {
   constructor(private http: HttpClient) { }
 
 
-  getAllTrainings() {
-    return this.http.get<Training[]>(`${config.apiUrl}/trainings`);
+  getAllTrainings(id: number) {
+    return this.http.get<Training[]>(`${config.apiUrl}/trainings/all/${id}`);
   }
 
   bindUserWithTraining(training: Training, id: number): Observable<boolean> {
@@ -34,8 +35,20 @@ export class TrainingService {
     return this.http.get<Training[]>(`${config.apiUrl}/trainings/employeeTrainings/${id}`);
   }
 
-  saveTraining(user: Training): Observable<boolean> {
-    return this.http.post(`${config.apiUrl}/trainings`, user).pipe(map(_ => true));
+  saveTraining(training: Training): Observable<boolean> {
+    return this.http.post(`${config.apiUrl}/trainings`, training).pipe(map(_ => true));
   }
+
+  saveProvider(training: Training): Observable<boolean> {
+    return this.http.post(`${config.apiUrl}/trainings/provider`, training).pipe(map(_ => true));
+  }
+  saveCluster(training: Training): Observable<boolean> {
+    return this.http.post(`${config.apiUrl}/trainings/cluster`, training).pipe(map(_ => true));
+  }
+
+  getClusters() {
+    return this.http.get<Cluster[]>(`${config.apiUrl}/trainings/cluster/clusters`);
+  }
+
 
 }

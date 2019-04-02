@@ -4,10 +4,10 @@ import { TrainingService } from '@/_services/training.service';
 declare var $:any;
 
 @Component({
-  selector: 'app-training-modal',
-  templateUrl: './training-modal.component.html'
+  selector: 'app-provider-modal',
+  templateUrl: './provider-modal.component.html'
 })
-export class TrainingModalComponent implements OnChanges {
+export class ProviderModalComponent implements OnChanges {
 
   //private workshops:BicycleCategory[] = [];
   
@@ -25,7 +25,7 @@ export class TrainingModalComponent implements OnChanges {
   }
   get title():string {
     if (this.actionWithTraining == 'add') {
-      return 'Add new Training';
+      return 'Add new Agent';
     } else {
       return 'Edit Agent';
     }

@@ -15,6 +15,8 @@ import { AdminComponent } from './admin';
 import { LoginComponent } from './login';
 import { TrainingsComponent } from './trainings';
 import { TrainingModalComponent } from './training-modal';
+import { ProviderModalComponent } from './provider-modal';
+import { ClusterModalComponent } from './cluster-modal';
 
 import { MyTrainingsComponent } from './myTrainings';
 import { MyEmployeesTrainingsComponent } from './myEmployeesTrainings';
@@ -44,6 +46,8 @@ import { FormsModule } from '@angular/forms';
         LoginComponent,
         TrainingsComponent,
         TrainingModalComponent,
+        ProviderModalComponent,
+        ClusterModalComponent,
         MyTrainingsComponent,
         MyEmployeesTrainingsComponent,
         SubstituteComponent,
